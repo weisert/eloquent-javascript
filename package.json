@@ -1,0 +1,24 @@
+{
+  "name": "eloquent-javascript",
+  "version": "1.0.0",
+  "description": "Exercises from 'Eloquent JavaScript' book.",
+  "main": "test_all.js",
+  "scripts": {
+    "test": "mocha test_all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weisert/eloquent-javascript.git"
+  },
+  "keywords": [ ],
+  "author": "Igor Vayzert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weisert/eloquent-javascript/issues"
+  },
+  "homepage": "https://github.com/weisert/eloquent-javascript#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
