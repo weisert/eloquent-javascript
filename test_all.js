@@ -175,3 +175,38 @@ describe('Chapter 4', function() {
     });
   });
 });
+
+describe('Chapter 5', function() {
+  var ch = require('./chapter5');
+  describe('flat', function() {
+    it('should create flat array', function() {
+      var expected = [1, 2, 3, 4, 5, 6, 7];
+      var input = [[], [1], [2, 3], [4, 5, 6], [], [7]];
+      expect(ch.flat(input)).to.deep.equal(expected);
+    });
+  });
+  describe('motherChildAgeDiff', function() {
+    it('should calculate mother-child age difference', function() {
+      expect(ch.motherChildAgeDiff()).to.be.within(31.15, 31.25);
+    });
+  });
+  describe('historicalLifeExpectancy', function() {
+    it('should calculate historical life expectancy', function() {
+      var expected = {16: 43.5, 17: 51.2, 18: 52.8,
+                      19: 54.8, 20: 84.7, 21: 94};
+      expect(ch.historicalLifeExpectancy()).to.deep.equal(expected);
+    });
+  });
+  describe('every', function() {
+    it('should return true if every element pass', function() {
+      expect(ch.every([NaN, NaN, NaN], isNaN)).to.be.true;
+      expect(ch.every([NaN, NaN, 4], isNaN)).to.be.false;
+    });
+  });
+  describe('some', function() {
+    it('should return true if at least one element pass', function() {
+      expect(ch.some([NaN, 3, 4], isNaN)).to.be.true;
+      expect(ch.some([2, 3, 4], isNaN)).to.be.false;
+    });
+  });
+});

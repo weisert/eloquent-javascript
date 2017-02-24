@@ -38,5 +38,3 @@ exports.chessBoard = function() {
   }
   return result;
 }
-
-exports.chessBoard();
