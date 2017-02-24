@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/weisert/eloquent-javascript.git"
   },
-  "keywords": [ ],
+  "keywords": [],
   "author": "Igor Vayzert",
   "license": "ISC",
   "bugs": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/weisert/eloquent-javascript#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-string": "^1.3.0",
     "mocha": "^3.2.0"
   }
 }

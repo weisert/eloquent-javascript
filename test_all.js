@@ -3,7 +3,45 @@
 
 var assert = require('assert');
 var chai = require('chai');
+chai.use(require('chai-string'));
 var expect = chai.expect;
+
+describe('Chapter 2', function() {
+  var ch = require('./chapter2');
+  describe('loopTriangle', function() {
+    it('should return hash triangle', function() {
+      var expected = '#\n' +
+                     '##\n' +
+                     '###\n' +
+                     '####\n' +
+                     '#####\n' +
+                     '######\n' +
+                     '#######\n' +
+                     '########\n';
+      expect(ch.loopTriangle()).to.be.equal(expected);
+    });
+  });
+  describe('fizzBuzz', function() {
+    it('should return proper value', function() {
+      var expected = '1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n' +
+                     '11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz';
+      expect(ch.fizzBuzz()).to.startsWith(expected);
+    });
+  });
+  describe('chessBoard', function() {
+    it('should return a chess board', function() {
+      var expected = '# # # # \n' +
+                     ' # # # #\n' +
+                     '# # # # \n' +
+                     ' # # # #\n' +
+                     '# # # # \n' +
+                     ' # # # #\n' +
+                     '# # # # \n' +
+                     ' # # # #\n';
+      expect(ch.chessBoard()).to.be.equal(expected);
+    });
+  });
+});
 
 describe('Chapter 4', function() {
   var ch = require('./chapter4');
