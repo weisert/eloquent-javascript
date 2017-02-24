@@ -43,6 +43,39 @@ describe('Chapter 2', function() {
   });
 });
 
+describe('Chapter 3', function() {
+  var ch = require('./chapter3');
+  describe('min', function() {
+    it('should return minimum value', function() {
+      expect(ch.min(0, 10)).to.be.equal(0);
+      expect(ch.min(0, -10)).to.be.equal(-10);
+    });
+  });
+  describe('isEven', function() {
+    it('should test if the argument is even', function() {
+      expect(ch.isEven(50)).to.be.true;
+      expect(ch.isEven(75)).to.be.false;
+    });
+    it('should also work with negative parameter', function() {
+      expect(ch.isEven(-1)).to.be.false;
+      expect(ch.isEven(-50)).to.be.true;
+      expect(ch.isEven(-75)).to.be.false;
+    });
+  });
+  describe('countBs', function() {
+    it('should count \'B\' in the string', function() {
+      expect(ch.countBs('BBC')).to.be.equal(2);
+      expect(ch.countBs('BbBbCbb')).to.be.equal(2);
+      expect(ch.countBs('bbbbCbb')).to.be.equal(0);
+    });
+  });
+  describe('countChar', function() {
+    it('should count letters in the string', function() {
+      expect(ch.countChar("kakkerlak", "k")).to.be.equal(4);
+    });
+  });
+});
+
 describe('Chapter 4', function() {
   var ch = require('./chapter4');
   describe('range', function() {
@@ -141,8 +174,4 @@ describe('Chapter 4', function() {
       expect(ch.deepEqual(obj, {here: {is: "an"}, object: 2})).to.be.true;
     });
   });
-
-
-
-  
 });
