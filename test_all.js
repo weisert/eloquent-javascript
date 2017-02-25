@@ -210,3 +210,80 @@ describe('Chapter 5', function() {
     });
   });
 });
+
+describe('Chapter 6', function() {
+  var ch = require('./chapter6');
+  describe('Vector', function() {
+    it('should have Vector type definition', function() {
+      var vec = new ch.Vector(10, 20);
+      expect(vec.x).to.be.equal(10);
+      expect(vec.y).to.be.equal(20);
+    });
+    it('should have plus method', function() {
+      var res = new ch.Vector(10, 20).plus(new ch.Vector(1, 5));
+      expect(res instanceof ch.Vector).to.be.true;
+      expect(res.x).to.be.equal(11);
+      expect(res.y).to.be.equal(25);
+    });
+    it('should have minus method', function() {
+      var res = new ch.Vector(10, 20).minus(new ch.Vector(1, 5));
+      expect(res instanceof ch.Vector).to.be.true;
+      expect(res.x).to.be.equal(9);
+      expect(res.y).to.be.equal(15);
+    });
+    it('should have length property', function() {
+      expect(new ch.Vector(3, 4).length).to.be.equal(5);
+      expect(new ch.Vector(60, 80).length).to.be.equal(100);
+    });
+  });
+  describe('StretchCell', function() {
+    it('should have TextCell methods', function() {
+      var cell = new ch.StretchCell(new ch.TextCell('abc'), 1, 2);
+      expect(cell.minWidth()).to.be.equal(3);
+      expect(cell.minHeight()).to.be.equal(2);
+      expect(cell.draw(3, 2)).to.deep.equal(["abc", "   "]);
+    });
+  });
+  describe('ArraySeq', function() {
+    it('should give an access to elements', function() {
+      var seq = new ch.ArraySeq([1, 2, 3]);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(1);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(2);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(3);
+      expect(seq.hasNext()).to.be.false;
+    });
+  });
+  describe('logFive', function() {
+    it('should write at most five elements to log', function() {
+      var output = [];
+      ch.logFive(new ch.ArraySeq([1, 2]), function(arg) {
+        output.push(arg);
+      });
+      expect(output).to.deep.equal([1, 2]);
+      output = [];
+      ch.logFive(new ch.ArraySeq([1, 2, 3, 4, 5, 6, 7]), function(arg) {
+        output.push(arg);
+      });
+      expect(output).to.deep.equal([1, 2, 3, 4, 5]);
+    });
+  });
+  describe('RangeSeq', function() {
+    it('should create a sequence with interface like ArraySeq', function() {
+      var seq = new ch.RangeSeq(100, 104);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(100);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(101);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(102);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(103);
+      expect(seq.hasNext()).to.be.true;
+      expect(seq.next()).to.be.equal(104);
+      expect(seq.hasNext()).to.be.false;
+    });
+  });
+});
