@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 function range(from, to, step) {
@@ -19,7 +20,7 @@ function sum(arr) {
 function reverse(arr) {
   var result = [];
   for (var i = arr.length - 1; i >= 0; i--) {
-    result.push(arr[i])
+    result.push(arr[i]);
   }
   return result;
 }
@@ -77,11 +78,11 @@ function nth(aList, n) {
 
 function deepEqual(lhs, rhs) {
   var props = [];
-  for (var s in lhs) {
-    props.push(s);
+  for (var propLhs in lhs) {
+    props.push(propLhs);
   }
-  for (var s in rhs) {
-    if (props.indexOf(s) == -1)
+  for (var propRhs in rhs) {
+    if (props.indexOf(propRhs) == -1)
       return false;
   }
   var result = true;

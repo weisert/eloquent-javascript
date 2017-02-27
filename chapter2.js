@@ -1,4 +1,4 @@
-
+/*jslint node: true */
 'use strict';
 
 module.exports = {};
@@ -15,18 +15,18 @@ exports.fizzBuzz = function() {
   var result = '';
   for (var current = 1; current <= 100; current++) {
     var line = '';
-    if (current % 3 == 0)
+    if (current % 3 === 0)
       line = 'Fizz';
-    if (current % 5 == 0)
+    if (current % 5 === 0)
       line += 'Buzz';
     line = line || String(current);
-    result += line + '\n'
+    result += line + '\n';
   }
   return result;
-}
+};
 
 exports.chessBoard = function() {
-  var result = ''
+  var result = '';
   for (var i = 0; i < 8; i++) {
     for (var j = 0; j < 8; j++) {
       if ((i+j) % 2)
@@ -37,4 +37,4 @@ exports.chessBoard = function() {
     result += '\n';
   }
   return result;
-}
+};

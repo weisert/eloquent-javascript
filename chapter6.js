@@ -1,4 +1,4 @@
-
+/*jslint node: true */
 'use strict';
 
 function Vector(x, y) {

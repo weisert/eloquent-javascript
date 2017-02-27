@@ -1,4 +1,5 @@
-
+/*jshint expr: true*/
+/*jslint node: true */
 'use strict';
 
 var assert = require('assert');
@@ -108,8 +109,8 @@ describe('Chapter 4', function() {
     it('should reverse an array in place', function() {
       var input = [[], [11], [11, 22], [11, 22, 33], [11, 22, 33, 44]];
       var expected = [[], [11], [22, 11], [33, 22, 11], [44, 33, 22, 11]];
-      for (var arr of input)
-        ch.reverseInPlace(arr);
+      for (var i = 0; i < input.length; i++)
+        ch.reverseInPlace(input[i] );
       input.forEach(function(arr, index) {
         expect(arr).to.deep.equal(expected[index]);
       });

@@ -1,4 +1,4 @@
-
+/*jslint node: true */
 'use strict';
 
 module.exports = {};
@@ -29,7 +29,7 @@ exports.motherChildAgeDiff = function() {
     }
   });
   return average(diffs);
-}
+};
 
 exports.historicalLifeExpectancy = function() {
   var ancestry = JSON.parse(require('./chapter5_res/ancestry.js'));
@@ -47,7 +47,7 @@ exports.historicalLifeExpectancy = function() {
     }
   }
   return result;
-}
+};
 
 exports.every = function(arr, fun) {
   for (var i = 0; i < arr.length; i++) {
@@ -55,7 +55,7 @@ exports.every = function(arr, fun) {
       return false;
   }
   return true;
-}
+};
 
 exports.some = function(arr, fun) {
   for (var i = 0; i < arr.length; i++) {
@@ -63,4 +63,4 @@ exports.some = function(arr, fun) {
       return true;
   }
   return false;
-}
+};
