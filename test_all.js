@@ -288,3 +288,31 @@ describe('Chapter 6', function() {
     });
   });
 });
+
+describe('Chapter 7', function() {
+  var Vector = require('./chapter6').Vector;
+  var ch = require('./chapter7');
+  var Grid = ch.Grid;
+  describe('Grid', function() {
+    it('should have undefined fields', function() {
+      var grid = new Grid(5, 5);
+      for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++) {
+          expect(grid.get(new Vector(i, j))).to.be.undefined;
+        }
+      }
+    });
+    it('should be able to set object in position', function() {
+      var grid = new Grid(5, 5);
+      grid.set(new Vector(1, 1), 'X');
+      for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++) {
+          if (i === 1 && j === 1)
+            expect(grid.get(new Vector(i, j))).to.be.equal('X');
+          else
+            expect(grid.get(new Vector(i, j))).to.be.undefined;
+        }
+      }
+    });
+  });
+});
