@@ -316,3 +316,40 @@ describe('Chapter 7', function() {
     });
   });
 });
+
+describe('Chapter 8', function() {
+  var ch = require('./chapter8');
+  describe('reliableMultiply', function() {
+    it('should never throw', function() {
+      for (var i = 0; i < 100; ++i) {
+        for (var j = 0; j < 100; ++j) {
+          expect(ch.reliableMultiply(i, j)).to.be.equal(i*j);
+        }
+      }
+    });
+  });
+  describe('withBoxUnlocked', function() {
+    it('the box should locked', function() {
+      expect(ch.box.locked).to.be.true;
+    });
+    it('is impossible to open box directly', function() {
+      expect(function() {
+        ch.box.content.push('gold');
+      }).to.throw(Error);
+    });
+    it('should give an access to the box', function() {
+      ch.withBoxUnlocked(function() {
+        ch.box.content.push('gold');
+      });
+      expect(ch.box.locked).to.be.true;
+    });
+    it('should lock the box in case of error', function() {
+      try {
+        ch.withBoxUnlocked(function() {
+          throw new Error("Pirates");
+        });
+      } catch (a) {}
+      expect(ch.box.locked).to.be.true;
+    });
+  });
+});
