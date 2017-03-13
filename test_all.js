@@ -353,3 +353,37 @@ describe('Chapter 8', function() {
     });
   });
 });
+
+describe('Chapter 9', function() {
+  var ch = require('./chapter9');
+  describe('regexpGolf', function() {
+    it('should not throw', function() {
+      expect(ch.regexpGolf()).to.be.true;
+    });
+  });
+  describe('quotingStyle', function() {
+    it('should replace \' to \" outside words', function() {
+      var text = "'I'm the cook,' he said, 'it's my job.'";
+      var expected = '"I\'m the cook," he said, "it\'s my job."';
+      expect(ch.quotingStyle(text)).to.be.equal(expected);
+    });
+  });
+  describe('isNumber', function() {
+    it('should return true if valid number passed', function() {
+      var numbers = ["1", "-1", "+15", "1.55", ".5", "5.",
+                     "1.3e2", "1E-4", "1e+12"];
+      numbers.forEach(function(num) {
+        expect(ch.isNumber(num)).to.be.true;
+      });
+    });
+    it('should return false if invalid data passed', function() {
+      var notNumbers = ["1a", "+-1", "1.2.3", "1+1", "1e4.5",
+                        ".5.", "1f5", "."];
+      notNumbers.forEach(function(s) {
+        expect(ch.isNumber(s)).to.be.false;
+      });
+    });
+  });
+
+
+});
